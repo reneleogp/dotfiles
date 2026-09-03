@@ -28,13 +28,18 @@
   nix-homebrew = {
     enable = true;
     inherit user;
+    autoMigrate = true;
   };
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap";  # remove anything not listed here
+    onActivation.cleanup = "none";
     onActivation.autoUpdate = true;
     onActivation.extraFlags = [ "--force" ];
     brews = [
+      "git"
+      "gh"
+      "node"
+      "tmux"
       "herdr"
     ];
     casks = [
